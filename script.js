@@ -832,10 +832,10 @@ function initializeMemoryMap() {
           lng: 124.3167,
           memory: "Wayside Inn, San Isidro, Talibon, Bohol",
           images: [
-            "our memories/wayside3.jpg",
-            "our memories/wayside1.jpg",
-            "our memories/wayside2.jpg",
-            "our memories/wayside.jpg",
+            "our memories/Wayside3.jpg",
+            "our memories/Wayside1.jpg",
+            "our memories/Wayside2.jpg",
+            "our memories/Wayside.jpg",
           ],
         },
         {
