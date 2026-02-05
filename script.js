@@ -440,7 +440,7 @@ function initializeWaxSeal() {
     // Check if countdown is complete
     if (!state.countdownComplete) {
       alert(
-        "🕒 Please wait until the countdown is over to open your love letter! 💌",
+        "🕒Please wait until the countdown is over to open your love letter!💌",
       );
       return;
     }

@@ -103,6 +103,74 @@ body {
     margin-bottom: 30px;
 }
 
+/* Smooth scroll behavior */
+html {
+    scroll-behavior: smooth;
+}
+
+/* ===========================
+   NAVIGATION BAR
+   =========================== */
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(255, 182, 193, 0.3);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 20px;
+    margin: 0 0 30px 0;
+    padding: 15px 20px;
+    box-shadow: 0 8px 32px 0 rgba(139, 21, 56, 0.15);
+}
+
+.nav-links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    flex-wrap: wrap;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: var(--deep-red);
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    padding: 10px 20px;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.nav-link:hover {
+    background: rgba(255, 255, 255, 0.5);
+    color: var(--rose-red);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(139, 21, 56, 0.2);
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 5px;
+    left: 50%;
+    transform: translateX(-50%) scaleX(0);
+    width: 60%;
+    height: 2px;
+    background: var(--rose-red);
+    transition: transform 0.3s ease;
+}
+
+.nav-link:hover::after {
+    transform: translateX(-50%) scaleX(1);
+}
+
 /* ===========================
    HEADER
    =========================== */
@@ -1189,6 +1257,22 @@ body {
         display: block;
     }
     
+    /* Navigation bar responsive */
+    .navbar {
+        padding: 10px 15px;
+        margin-bottom: 20px;
+    }
+    
+    .nav-links {
+        gap: 15px;
+        justify-content: space-between;
+    }
+    
+    .nav-link {
+        font-size: 0.9rem;
+        padding: 8px 12px;
+    }
+    
     /* Main container adjustments */
     .main-container {
         padding: 30px 20px;
@@ -1379,6 +1463,21 @@ body {
 
 /* Mobile phones (480px and below) */
 @media (max-width: 480px) {
+    /* Navigation bar - more compact */
+    .navbar {
+        padding: 8px 10px;
+        margin-bottom: 15px;
+    }
+    
+    .nav-links {
+        gap: 8px;
+    }
+    
+    .nav-link {
+        font-size: 0.75rem;
+        padding: 6px 10px;
+    }
+    
     /* Main container */
     .main-container {
         padding: 20px 12px;

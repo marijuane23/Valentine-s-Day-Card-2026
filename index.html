@@ -21,8 +21,19 @@
         <!-- Mobile Falling Hearts (visible only on mobile) -->
         <div class="mobile-hearts-container" id="mobileHeartsContainer"></div>
         
+        <!-- Navigation Bar -->
+        <nav class="navbar">
+            <ul class="nav-links">
+                <li><a href="#top" class="nav-link">Home</a></li>
+                <li><a href="#love-letter" class="nav-link">Love Letter</a></li>
+                <li><a href="#gallery" class="nav-link">Gallery</a></li>
+                <li><a href="#poem" class="nav-link">Poem</a></li>
+                <li><a href="#map" class="nav-link">Memory Map</a></li>
+            </ul>
+        </nav>
+        
         <!-- Header -->
-        <header class="header">
+        <header class="header" id="top">
             <h1 class="main-title">A Love Letter for Mimi</h1>
             <p class="subtitle">❤️ Happy Valentine's Day ❤️</p>
         </header>
@@ -85,7 +96,7 @@
         </div>
 
         <!-- Love Letter Envelope -->
-        <div class="message-section">
+        <div class="message-section" id="love-letter">
             <h2 class="section-title">My Love Letter For You MyLove</h2>
             
             <div class="envelope-container" id="envelopeContainer">
@@ -104,7 +115,7 @@
         </div>
 
         <!-- Photo Gallery -->
-        <div class="gallery-section">
+        <div class="gallery-section" id="gallery">
             <h2 class="section-title">Our Cherished Memories</h2>
             
             <!-- Album Selector -->
@@ -138,7 +149,7 @@
         </div>
 
         <!-- Poem Generator -->
-        <div class="poem-section">
+        <div class="poem-section" id="poem">
             <h2 class="section-title">A Secret Just For You</h2>
             <button class="reveal-btn" id="revealPoemBtn">
                 <span>✨ Reveal a Secret Poem ✨</span>
@@ -151,7 +162,7 @@
         </div>
 
         <!-- Memory Map -->
-        <div class="map-section">
+        <div class="map-section" id="map">
             <h2 class="section-title">Our Memory Map</h2>
             <p class="map-instructions">Click any emoji on the map "MyLove" to reminisce about our cherished memory.</p>
             <div class="memory-map" id="memoryMap">
