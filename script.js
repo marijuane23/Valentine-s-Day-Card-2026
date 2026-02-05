@@ -52,7 +52,7 @@ function createFallingHearts() {
 // COUNTDOWN TIMER
 // ===========================
 function initializeCountdown() {
-  const valentinesDay = new Date("2026-02-05T13:59:00");
+  const valentinesDay = new Date("2026-02-14T17:30:00");
   const flowerField = document.getElementById("flowerField");
 
   function updateCountdown() {
@@ -975,7 +975,7 @@ document.addEventListener("DOMContentLoaded", () => {
   createFallingHearts();
 
   // Initialize countdown and check if already complete
-  const valentinesDay = new Date("2026-02-05T13:59:00");
+  const valentinesDay = new Date("2026-02-14T17:30:00");
   const now = new Date();
 
   if (now >= valentinesDay) {
