@@ -875,6 +875,9 @@ function initializeMemoryMap() {
             "our memories/Wayside1.jpg",
             "our memories/Wayside2.jpg",
             "our memories/Wayside.jpg",
+            "our memories/Wayside4.jpeg",
+            "our memories/Wayside5.jpeg",
+            "our memories/Wayside6.jpeg",
           ],
         },
         {
