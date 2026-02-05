@@ -1,0 +1,26 @@
+/* This is a placeholder file for the romantic background music.
+ * 
+ * To enable music in your Valentine's Day card:
+ * 
+ * Option 1: Use your own music file
+ * - Replace this file with an MP3 file named "romantic-music.mp3"
+ * - Recommended: Soft romantic piano melody or instrumental
+ * 
+ * Option 2: Use royalty-free music
+ * - Visit sites like: FreePD.com, Bensound.com, or YouTube Audio Library
+ * - Download a romantic instrumental track
+ * - Rename it to "romantic-music.mp3" and place it here
+ * 
+ * Option 3: Generate simple melody
+ * - Use online music generators or AI tools
+ * - Create a soft, romantic piano piece
+ * - Export as MP3 format
+ * 
+ * Recommended characteristics:
+ * - Duration: 2-5 minutes (will loop automatically)
+ * - Tempo: Slow to moderate (60-80 BPM)
+ * - Style: Piano, strings, or soft instrumental
+ * - Volume: Moderate (the app has fade-in/fade-out)
+ * 
+ * The music toggle starts muted by default for better user experience.
+ */

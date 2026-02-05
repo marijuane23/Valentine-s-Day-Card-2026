@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>❤️Valentine's Day Card for Mimi❤️</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@400;600&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+    
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+</head>
+<body>
+    <!-- Falling Hearts Background -->
+    <div class="hearts-container" id="heartsContainer"></div>
+    
+    <!-- Main Container -->
+    <div class="main-container">
+        <!-- Header -->
+        <header class="header">
+            <h1 class="main-title">A Love Letter for Mimi</h1>
+            <p class="subtitle">❤️ Happy Valentine's Day ❤️</p>
+        </header>
+
+        <!-- Music Toggle -->
+        <div class="music-toggle" id="musicToggle">
+            <div class="music-controls">
+                <button class="music-nav-btn" id="prevBtn" title="Previous Song">
+                    <span>⏮️</span>
+                </button>
+                <button class="music-btn" id="musicBtn">
+                    <span class="music-icon">🎵</span>
+                    <span class="music-text">Play Music</span>
+                </button>
+                <button class="music-nav-btn" id="nextBtn" title="Next Song">
+                    <span>⏭️</span>
+                </button>
+            </div>
+            <div class="song-title" id="songTitle">It's You - Ali Gatie</div>
+        </div>
+
+        <!-- Countdown Timer -->
+        <div class="countdown-section">
+            <h2 class="section-title">Time Until Our Special Day</h2>
+            <div class="countdown-display" id="countdownDisplay">
+                <div class="countdown-item">
+                    <span class="countdown-number" id="days">00</span>
+                    <span class="countdown-label">Days</span>
+                </div>
+                <div class="countdown-item">
+                    <span class="countdown-number" id="hours">00</span>
+                    <span class="countdown-label">Hours</span>
+                </div>
+                <div class="countdown-item">
+                    <span class="countdown-number" id="minutes">00</span>
+                    <span class="countdown-label">Minutes</span>
+                </div>
+                <div class="countdown-item">
+                    <span class="countdown-number" id="seconds">00</span>
+                    <span class="countdown-label">Seconds</span>
+                </div>
+            </div>
+            <div class="flower-field hidden" id="flowerField">
+                <div class="flower">🌹</div>
+                <div class="flower">🌺</div>
+                <div class="flower">🌸</div>
+                <div class="flower">🌼</div>
+                <div class="flower">🌻</div>
+                <div class="flower">💐</div>
+                <div class="flower">🌷</div>
+                <div class="flower">🌹</div>
+                <div class="flower">🌺</div>
+                <div class="flower">🌸</div>
+                <div class="flower">🌼</div>
+                <div class="flower">🌻</div>
+                <div class="flower">💐</div>
+                <div class="flower">🌷</div>
+                <div class="flower">🌹</div>
+            </div>
+        </div>
+
+        <!-- Love Letter Envelope -->
+        <div class="message-section">
+            <h2 class="section-title">My Love Letter For You MyLove</h2>
+            
+            <div class="envelope-container" id="envelopeContainer">
+                <div class="envelope" id="envelope">
+                    <div class="envelope-flap" id="envelopeFlap"></div>
+                    <div class="envelope-body">
+                        <div class="letter" id="letter">
+                            <p class="letter-text" id="letterText">💘To My Dearest Love, Happy Valentine's Day. Every moment with you is a treasure I hold close to my heart. You are my forever and always. With all my love, Dada loves you truly.💕</p>
+                        </div>
+                    </div>
+                    <div class="wax-seal-container visible" id="waxSealContainer">
+                        <div class="wax-seal" id="waxSeal">💘</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Photo Gallery -->
+        <div class="gallery-section">
+            <h2 class="section-title">Our Cherished Memories</h2>
+            
+            <!-- Album Selector -->
+            <div class="album-selector">
+                <button class="album-btn active" data-album="anda">Anda</button>
+                <button class="album-btn" data-album="bisu">BISU-Bilar</button>
+                <button class="album-btn" data-album="bku">BKU</button>
+                <button class="album-btn" data-album="jollibee">Jollibee</button>
+                <button class="album-btn" data-album="fatima">Fatima</button>
+                <button class="album-btn" data-album="poblacion">Poblacion</button>
+                <button class="album-btn" data-album="puerto">Puerto</button>
+                <button class="album-btn" data-album="screenville">ScreenVille</button>
+                <button class="album-btn" data-album="sikatuna">Sikatuna</button>
+                <button class="album-btn" data-album="wayside">Wayside</button>
+                <button class="album-btn" data-album="zamora">Zamora</button>
+            </div>
+            
+            <div class="border-selector">
+                <label for="borderSelect">Frame Style:</label>
+                <select id="borderSelect" class="border-dropdown">
+                    <option value="roses" selected>Red Roses</option>
+                    <option value="lilies">White Lilies</option>
+                    <option value="babysbreath">Baby's Breath</option>
+                    <option value="mixed">Mixed Florals</option>
+                </select>
+            </div>
+            <div class="photo-gallery" id="photoGallery"></div>
+        </div>
+
+        <!-- Poem Generator -->
+        <div class="poem-section">
+            <h2 class="section-title">A Secret Just For You</h2>
+            <button class="reveal-btn" id="revealPoemBtn">
+                <span>✨ Reveal a Secret Poem ✨</span>
+            </button>
+            <div class="poem-container" id="poemContainer">
+                <div class="parchment">
+                    <p class="poem-text" id="poemText"></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Memory Map -->
+        <div class="map-section">
+            <h2 class="section-title">Our Memory Map</h2>
+            <p class="map-instructions">Click anywhere on the map MyLove to add our cherished memory</p>
+            <div class="memory-map" id="memoryMap">
+                <div class="map-canvas" id="mapCanvas"></div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>Made with ❤️ for Valentine's Day 2026</p>
+        </footer>
+    </div>
+
+    <!-- Audio Element -->
+    <audio id="backgroundMusic">
+        <source src="audio/Ali Gatie - It's You lyrics.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    <script src="script.js"></script>
+</body>
+</html>
