@@ -492,10 +492,11 @@ function initializePhotoGallery() {
       "Anda6.jpg",
     ],
     bisu: [
-      "BISU-Bilar Campus.jpg",
-      "BISU-Bilar Campus1.jpg",
       "BISU-Bilar Campus2.jpg",
       "BISU-Bilar Campus3.jpg",
+      "BISU-Bilar Campus.jpg",
+      "BISU-Bilar Campus1.jpg",
+      "BISU-Bilar Campus4.jpeg",
     ],
     bku: [
       "BKU.jpg",
@@ -506,6 +507,9 @@ function initializePhotoGallery() {
       "BKU5.jpg",
       "BKU6.jpg",
       "BKU7.jpg",
+      "BKU8.jpg",
+      "BKU9.jpg",
+      "BKU10.jpg",
     ],
     jollibee: [
       "Jollibee Alturas.jpg",
@@ -526,6 +530,10 @@ function initializePhotoGallery() {
       "poblacion5.jpg",
       "poblacion6.jpg",
       "poblacion7.jpg",
+      "poblacion8.jpeg",
+      "poblacion9.jpeg",
+      "poblacion10.jpeg",
+      "poblacion11.jpeg",
     ],
     puerto: [
       "puerto.jpg",
@@ -536,6 +544,7 @@ function initializePhotoGallery() {
       "puerto5.jpg",
       "puerto6.jpg",
       "puerto7.jpg",
+      "puerto8.jpeg",
     ],
     screenville: [
       "screenville.jpg",
@@ -550,9 +559,31 @@ function initializePhotoGallery() {
       "Sikatuna Mirror of The World2.jpg",
       "Sikatuna Mirror of The World3.jpg",
       "Sikatuna Mirror of The World4.jpg",
+      "Sikatuna Mirror of The World5.jpg",
+        "Sikatuna Mirror of The World6.jpg",
     ],
-    wayside: ["Wayside.jpg", "Wayside1.jpg", "Wayside2.jpg", "Wayside3.jpg"],
-    zamora: ["zamora.jpg", "zamora1.jpg", "zamora2.jpg", "zamora3.jpg"],
+    wayside: ["Wayside.jpg", "Wayside1.jpg", "Wayside2.jpg", "Wayside3.jpg", "Wayside4.jpeg", "Wayside5.jpeg", "Wayside6.jpeg" ],
+    zamora: ["zamora.jpg", "zamora1.jpg", "zamora2.jpg", "zamora3.jpg", "zamora4.jpg", "zamora5.jpg", "zamora6.jpg"],
+    talibon: [
+      "talibon.jpg",
+      "talibon1.jpg",
+      "talibon2.jpg",
+      "talibon3.jpg",
+      "talibon4.jpg",
+      "talibon5.jpg",
+      "talibon6.jpg",
+      "talibon7.jpg",
+    ],
+    bws: [
+        "PinningCeremony.jpg",
+        "PinningCeremony1.jpg",
+        "PinningCeremony2.jpg",
+        "PinningCeremony3.jpg",
+        "PinningCeremony4.jpg",
+        "PinningCeremony5.jpg",
+        "PinningCeremony6.jpg",
+        "PinningCeremony7.jpg",
+    ]
   };
 
   // Function to display photos for selected album
@@ -799,6 +830,7 @@ function initializeMemoryMap() {
             "our memories/puerto5.jpg",
             "our memories/puerto6.jpg",
             "our memories/puerto7.jpg",
+            "our memories/puerto8.jpeg",
           ],
         },
         {
@@ -814,6 +846,10 @@ function initializeMemoryMap() {
             "our memories/poblacion5.jpg",
             "our memories/poblacion6.jpg",
             "our memories/poblacion7.jpg",
+            "our memories/poblacion8.jpeg",
+            "our memories/poblacion9.jpeg",
+            "our memories/poblacion10.jpeg",
+            "our memories/poblacion11.jpeg",
           ],
         },
         {
@@ -825,6 +861,9 @@ function initializeMemoryMap() {
             "our memories/zamora.jpg",
             "our memories/zamora2.jpg",
             "our memories/zamora3.jpg",
+            "our memories/zamora4.jpg",
+            "our memories/zamora5.jpg",
+            "our memories/zamora6.jpg"
           ],
         },
         {
@@ -852,8 +891,8 @@ function initializeMemoryMap() {
           ],
         },
         {
-          lat: 9.85262,
-          lng: 124.23192,
+          lat: 9.8507,
+          lng: 124.2309,
           memory: "Our Lady of Fatima Shrine, Carmen, Bohol",
           images: [
             "our memories/Our Lady Of Fatima, Carmen.jpg",
@@ -872,6 +911,8 @@ function initializeMemoryMap() {
             "our memories/Sikatuna Mirror of The World2.jpg",
             "our memories/Sikatuna Mirror of The World3.jpg",
             "our memories/Sikatuna Mirror of The World4.jpg",
+            "our memories/Sikatuna Mirror of The World5.jpg",
+            "our memories/Sikatuna Mirror of The World6.jpg",
           ],
         },
         {
@@ -903,15 +944,16 @@ function initializeMemoryMap() {
           lng: 124.1096,
           memory: "BISU-Bilar Campus, Bilar, Bohol",
           images: [
-            "our memories/BISU-Bilar Campus.jpg",
-            "our memories/BISU-Bilar Campus1.jpg",
             "our memories/BISU-Bilar Campus2.jpg",
             "our memories/BISU-Bilar Campus3.jpg",
+            "our memories/BISU-Bilar Campus.jpg",
+            "our memories/BISU-Bilar Campus1.jpg",
+            "our memories/BISU-Bilar Campus4.jpeg",
           ],
         },
         {
-          lat: 9.722,
-          lng: 124.1115,
+          lat: 9.7187,
+          lng: 124.1118,
           memory: "BKU Cafe & Resto, Zamora, Bilar, Bohol",
           images: [
             "our memories/BKU.jpg",
@@ -922,7 +964,40 @@ function initializeMemoryMap() {
             "our memories/BKU5.jpg",
             "our memories/BKU6.jpg",
             "our memories/BKU7.jpg",
+            "our memories/BKU8.jpg",
+            "our memories/BKU9.jpg",
+            "our memories/BKU10.jpg",
           ],
+        },
+        {
+            lat: 10.1527,
+            lng: 124.3277,
+            memory: "Alturas, Talibon, Bohol",
+            images: [
+              "our memories/talibon.jpg",
+              "our memories/talibon1.jpg",
+              "our memories/talibon2.jpg",
+              "our memories/talibon3.jpg",
+              "our memories/talibon4.jpg",
+              "our memories/talibon5.jpg",
+              "our memories/talibon6.jpg",
+              "our memories/talibon7.jpg",
+            ],
+        },
+        {
+            lat: 9.6607,
+            lng: 123.8562,
+            memory: "BWS Pinning Ceremony, Tagbilaran City, Bohol",
+            images: [
+              "our memories/PinningCeremony.jpg",
+              "our memories/PinningCeremony1.jpg",
+              "our memories/PinningCeremony2.jpg",
+              "our memories/PinningCeremony3.jpg",
+              "our memories/PinningCeremony4.jpg",
+              "our memories/PinningCeremony5.jpg",
+              "our memories/PinningCeremony6.jpg",
+              "our memories/PinningCeremony7.jpg",
+            ],
         },
       ];
 
