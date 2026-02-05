@@ -49,6 +49,58 @@ function createFallingHearts() {
 }
 
 // ===========================
+// MOBILE FALLING HEARTS (Mobile Only)
+// ===========================
+function createMobileFallingHearts() {
+  const mobileHeartsContainer = document.getElementById("mobileHeartsContainer");
+  
+  // Only create if on mobile screen (check viewport width)
+  if (window.innerWidth <= 768 && mobileHeartsContainer) {
+    const heartSymbols = ["❤️", "💕", "💖", "💗", "💓", "💝"];
+
+    function createMobileHeart() {
+      // Double check screen size
+      if (window.innerWidth > 768) return;
+      
+      const heart = document.createElement("div");
+      heart.classList.add("mobile-heart");
+      heart.textContent =
+        heartSymbols[Math.floor(Math.random() * heartSymbols.length)];
+      heart.style.left = Math.random() * 100 + "%";
+      heart.style.animationDuration = Math.random() * 4 + 6 + "s";
+      heart.style.fontSize = Math.random() * 10 + 12 + "px";
+
+      mobileHeartsContainer.appendChild(heart);
+
+      setTimeout(
+        () => {
+          heart.remove();
+        },
+        parseFloat(heart.style.animationDuration) * 1000,
+      );
+    }
+
+    // Create hearts continuously (less frequent than desktop)
+    setInterval(createMobileHeart, 1200);
+
+    // Create initial batch
+    for (let i = 0; i < 5; i++) {
+      setTimeout(createMobileHeart, i * 400);
+    }
+    
+    // Handle window resize - stop creating hearts if screen gets bigger
+    window.addEventListener("resize", () => {
+      if (window.innerWidth > 768) {
+        // Clear mobile hearts container
+        if (mobileHeartsContainer) {
+          mobileHeartsContainer.innerHTML = "";
+        }
+      }
+    });
+  }
+}
+
+// ===========================
 // COUNTDOWN TIMER
 // ===========================
 function initializeCountdown() {
@@ -732,19 +784,6 @@ function initializeMemoryMap() {
         console.log("Map invalidated and resized");
       }, 250);
 
-      // Add click event to map
-      map.on("click", (e) => {
-        const { lat, lng } = e.latlng;
-        console.log("Map clicked at:", lat, lng);
-
-        const memory = prompt("Enter a memory for this location:");
-
-        if (memory && memory.trim()) {
-          createMemoryPin(lat, lng, memory.trim());
-          state.memoryPins.push({ lat, lng, memory: memory.trim() });
-        }
-      });
-
       // Add pre-pinned locations in Bohol
       const prePinnedLocations = [
         {
@@ -973,6 +1012,7 @@ function createMemoryPin(lat, lng, memory, images = null) {
 // ===========================
 document.addEventListener("DOMContentLoaded", () => {
   createFallingHearts();
+  createMobileFallingHearts(); // Initialize mobile falling hearts
 
   // Initialize countdown and check if already complete
   const valentinesDay = new Date("2026-02-14T17:30:00");

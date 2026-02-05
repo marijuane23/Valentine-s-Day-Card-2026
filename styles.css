@@ -66,6 +66,26 @@ body {
     }
 }
 
+/* Mobile-only falling hearts inside main container */
+.mobile-hearts-container {
+    display: none; /* Hidden on desktop */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 5;
+    overflow: hidden;
+}
+
+.mobile-heart {
+    position: absolute;
+    font-size: 18px;
+    opacity: 0;
+    animation: fall linear forwards;
+}
+
 /* ===========================
    MAIN CONTAINER
    =========================== */
@@ -1164,6 +1184,11 @@ body {
 
 /* Tablet and smaller devices (768px and below) */
 @media (max-width: 768px) {
+    /* Show mobile falling hearts */
+    .mobile-hearts-container {
+        display: block;
+    }
+    
     /* Main container adjustments */
     .main-container {
         padding: 30px 20px;
