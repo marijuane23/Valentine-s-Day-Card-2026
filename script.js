@@ -11,6 +11,7 @@ const state = {
   currentBorder: "roses",
   memoryPins: [],
   countdownComplete: false,
+  isPinUnlocked: false,
 };
 
 // ===========================
@@ -52,8 +53,10 @@ function createFallingHearts() {
 // MOBILE FALLING HEARTS (Mobile Only)
 // ===========================
 function createMobileFallingHearts() {
-  const mobileHeartsContainer = document.getElementById("mobileHeartsContainer");
-  
+  const mobileHeartsContainer = document.getElementById(
+    "mobileHeartsContainer",
+  );
+
   // Only create if on mobile screen (check viewport width)
   if (window.innerWidth <= 768 && mobileHeartsContainer) {
     const heartSymbols = ["❤️", "💕", "💖", "💗", "💓", "💝"];
@@ -61,7 +64,7 @@ function createMobileFallingHearts() {
     function createMobileHeart() {
       // Double check screen size
       if (window.innerWidth > 768) return;
-      
+
       const heart = document.createElement("div");
       heart.classList.add("mobile-heart");
       heart.textContent =
@@ -87,7 +90,7 @@ function createMobileFallingHearts() {
     for (let i = 0; i < 5; i++) {
       setTimeout(createMobileHeart, i * 400);
     }
-    
+
     // Handle window resize - stop creating hearts if screen gets bigger
     window.addEventListener("resize", () => {
       if (window.innerWidth > 768) {
@@ -104,7 +107,8 @@ function createMobileFallingHearts() {
 // COUNTDOWN TIMER
 // ===========================
 function initializeCountdown() {
-  const valentinesDay = new Date("2026-02-14T17:30:00");
+  const valentinesDay = new Date("2026-02-11T21:50:00");
+  //const valentinesDay = new Date("2026-02-14T17:30:00");
   const flowerField = document.getElementById("flowerField");
 
   function updateCountdown() {
@@ -165,8 +169,52 @@ function initializeCountdown() {
   setInterval(updateCountdown, 1000);
 }
 
-// Function to unlock envelope and poem after countdown
+// Function to unlock envelope and poem after countdown (still requires PIN)
 function unlockFeatures() {
+  // After countdown completes, features are still locked but ready for PIN
+  // They will be unlocked by unlockWithPin() after correct PIN is entered
+  const waxSealContainer = document.getElementById("waxSealContainer");
+  const envelopeContainer = document.getElementById("envelopeContainer");
+  const revealBtn = document.getElementById("revealPoemBtn");
+
+  // Make them visually available but still locked (waiting for PIN)
+  if (waxSealContainer) {
+    waxSealContainer.style.opacity = "1";
+    waxSealContainer.style.cursor = "pointer";
+  }
+  if (revealBtn) {
+    revealBtn.style.cursor = "pointer";
+  }
+}
+
+// Function to prompt for PIN and unlock both features
+function promptForPin() {
+  const pin = prompt(
+    "🔒 Please enter the PIN to unlock this special feature:\n\n💘 Hint: A special date for us (MMDD)",
+  );
+
+  if (pin === null) {
+    // User cancelled
+    return false;
+  }
+
+  if (pin === "0825") {
+    // Correct PIN!
+    state.isPinUnlocked = true;
+    unlockWithPin();
+    alert(
+      "💖 PIN accepted! Your love letter and poem are now unlocked MyLove 💕",
+    );
+    return true;
+  } else {
+    // Wrong PIN
+    alert("❌ Incorrect PIN. Please try again!");
+    return false;
+  }
+}
+
+// Function to actually unlock features after PIN is verified
+function unlockWithPin() {
   const waxSealContainer = document.getElementById("waxSealContainer");
   const envelopeContainer = document.getElementById("envelopeContainer");
   const revealBtn = document.getElementById("revealPoemBtn");
@@ -440,9 +488,18 @@ function initializeWaxSeal() {
     // Check if countdown is complete
     if (!state.countdownComplete) {
       alert(
-        "🕒Please wait until the countdown is over to open your love letter!💌",
+        "Patience is virtue MyLove😘, please wait until the countdown is over to open your love letter!💌",
       );
       return;
+    }
+
+    // Check if PIN has been entered
+    if (!state.isPinUnlocked) {
+      const unlocked = promptForPin();
+      if (!unlocked) {
+        return; // PIN not entered or incorrect
+      }
+      // If we get here, PIN was correct and features are unlocked
     }
 
     if (!state.isEnvelopeOpen) {
@@ -560,10 +617,26 @@ function initializePhotoGallery() {
       "Sikatuna Mirror of The World3.jpg",
       "Sikatuna Mirror of The World4.jpg",
       "Sikatuna Mirror of The World5.jpg",
-        "Sikatuna Mirror of The World6.jpg",
+      "Sikatuna Mirror of The World6.jpg",
     ],
-    wayside: ["Wayside.jpg", "Wayside1.jpg", "Wayside2.jpg", "Wayside3.jpg", "Wayside4.jpeg", "Wayside5.jpeg", "Wayside6.jpeg" ],
-    zamora: ["zamora.jpg", "zamora1.jpg", "zamora2.jpg", "zamora3.jpg", "zamora4.jpg", "zamora5.jpg", "zamora6.jpg"],
+    wayside: [
+      "Wayside.jpg",
+      "Wayside1.jpg",
+      "Wayside2.jpg",
+      "Wayside3.jpg",
+      "Wayside4.jpeg",
+      "Wayside5.jpeg",
+      "Wayside6.jpeg",
+    ],
+    zamora: [
+      "zamora.jpg",
+      "zamora1.jpg",
+      "zamora2.jpg",
+      "zamora3.jpg",
+      "zamora4.jpg",
+      "zamora5.jpg",
+      "zamora6.jpg",
+    ],
     talibon: [
       "talibon.jpg",
       "talibon1.jpg",
@@ -575,15 +648,15 @@ function initializePhotoGallery() {
       "talibon7.jpg",
     ],
     bws: [
-        "PinningCeremony.jpg",
-        "PinningCeremony1.jpg",
-        "PinningCeremony2.jpg",
-        "PinningCeremony3.jpg",
-        "PinningCeremony4.jpg",
-        "PinningCeremony5.jpg",
-        "PinningCeremony6.jpg",
-        "PinningCeremony7.jpg",
-    ]
+      "PinningCeremony.jpg",
+      "PinningCeremony1.jpg",
+      "PinningCeremony2.jpg",
+      "PinningCeremony3.jpg",
+      "PinningCeremony4.jpg",
+      "PinningCeremony5.jpg",
+      "PinningCeremony6.jpg",
+      "PinningCeremony7.jpg",
+    ],
   };
 
   // Function to display photos for selected album
@@ -711,7 +784,6 @@ it is still you I am loving—
 slowly, deeply, endlessly.
 
 Happy Valentine’s Day, my love.`,
-
   ];
 
   let currentPoemIndex = -1;
@@ -723,6 +795,15 @@ Happy Valentine’s Day, my love.`,
         "🕒 Please wait until the countdown is over to reveal the secret poem! ✨",
       );
       return;
+    }
+
+    // Check if PIN has been entered
+    if (!state.isPinUnlocked) {
+      const unlocked = promptForPin();
+      if (!unlocked) {
+        return; // PIN not entered or incorrect
+      }
+      // If we get here, PIN was correct and features are unlocked
     }
 
     if (poemContainer.classList.contains("revealed")) {
@@ -863,7 +944,7 @@ function initializeMemoryMap() {
             "our memories/zamora3.jpg",
             "our memories/zamora4.jpg",
             "our memories/zamora5.jpg",
-            "our memories/zamora6.jpg"
+            "our memories/zamora6.jpg",
           ],
         },
         {
@@ -973,34 +1054,34 @@ function initializeMemoryMap() {
           ],
         },
         {
-            lat: 10.1527,
-            lng: 124.3277,
-            memory: "Alturas, Talibon, Bohol",
-            images: [
-              "our memories/talibon.jpg",
-              "our memories/talibon1.jpg",
-              "our memories/talibon2.jpg",
-              "our memories/talibon3.jpg",
-              "our memories/talibon4.jpg",
-              "our memories/talibon5.jpg",
-              "our memories/talibon6.jpg",
-              "our memories/talibon7.jpg",
-            ],
+          lat: 10.1527,
+          lng: 124.3277,
+          memory: "Alturas, Talibon, Bohol",
+          images: [
+            "our memories/talibon.jpg",
+            "our memories/talibon1.jpg",
+            "our memories/talibon2.jpg",
+            "our memories/talibon3.jpg",
+            "our memories/talibon4.jpg",
+            "our memories/talibon5.jpg",
+            "our memories/talibon6.jpg",
+            "our memories/talibon7.jpg",
+          ],
         },
         {
-            lat: 9.6607,
-            lng: 123.8562,
-            memory: "BWS Pinning Ceremony, Tagbilaran City, Bohol",
-            images: [
-              "our memories/PinningCeremony.jpg",
-              "our memories/PinningCeremony1.jpg",
-              "our memories/PinningCeremony2.jpg",
-              "our memories/PinningCeremony3.jpg",
-              "our memories/PinningCeremony4.jpg",
-              "our memories/PinningCeremony5.jpg",
-              "our memories/PinningCeremony6.jpg",
-              "our memories/PinningCeremony7.jpg",
-            ],
+          lat: 9.6607,
+          lng: 123.8562,
+          memory: "BWS Pinning Ceremony, Tagbilaran City, Bohol",
+          images: [
+            "our memories/PinningCeremony.jpg",
+            "our memories/PinningCeremony1.jpg",
+            "our memories/PinningCeremony2.jpg",
+            "our memories/PinningCeremony3.jpg",
+            "our memories/PinningCeremony4.jpg",
+            "our memories/PinningCeremony5.jpg",
+            "our memories/PinningCeremony6.jpg",
+            "our memories/PinningCeremony7.jpg",
+          ],
         },
       ];
 
@@ -1093,7 +1174,8 @@ document.addEventListener("DOMContentLoaded", () => {
   createMobileFallingHearts(); // Initialize mobile falling hearts
 
   // Initialize countdown and check if already complete
-  const valentinesDay = new Date("2026-02-14T17:30:00");
+  const valentinesDay = new Date("2026-02-11T21:50:00");
+  //const valentinesDay = new Date("2026-02-14T17:30:00");
   const now = new Date();
 
   if (now >= valentinesDay) {
