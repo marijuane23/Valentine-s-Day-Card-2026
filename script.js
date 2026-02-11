@@ -107,8 +107,8 @@ function createMobileFallingHearts() {
 // COUNTDOWN TIMER
 // ===========================
 function initializeCountdown() {
-  const valentinesDay = new Date("2026-02-11T21:50:00");
-  //const valentinesDay = new Date("2026-02-14T17:30:00");
+  const valentinesDay = new Date("2026-02-14T20:25:00");
+  //const valentinesDay = new Date("2026-02-14T20:25:00");
   const flowerField = document.getElementById("flowerField");
 
   function updateCountdown() {
@@ -1174,7 +1174,7 @@ document.addEventListener("DOMContentLoaded", () => {
   createMobileFallingHearts(); // Initialize mobile falling hearts
 
   // Initialize countdown and check if already complete
-  const valentinesDay = new Date("2026-02-11T21:50:00");
+  const valentinesDay = new Date("2026-02-14T20:25:00");
   //const valentinesDay = new Date("2026-02-14T17:30:00");
   const now = new Date();
 
