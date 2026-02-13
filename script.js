@@ -272,6 +272,10 @@ function lockFeatures() {
 // ===========================
 const playlist = [
   {
+    title: "You - SoulSign",
+    src: "audio/you.m4a",
+  },
+  {
     title: "It's You - Ali Gatie",
     src: "audio/Ali Gatie - It's You lyrics.mp3",
   },
